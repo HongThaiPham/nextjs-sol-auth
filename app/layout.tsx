@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SolanaProvider from "@/components/SolanaProvider";
 import { cn } from "@/lib/utils";
+import { NextAuthProvider } from "@/components/NextAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,9 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <SolanaProvider>{children}</SolanaProvider>
+        <NextAuthProvider>
+          <SolanaProvider>{children}</SolanaProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
